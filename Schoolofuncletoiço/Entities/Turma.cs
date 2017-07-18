@@ -8,5 +8,9 @@ namespace Schoolofuncletoiço.Entities
 {
     class Turma
     {
+        public int idTurma;
+        public int vagas;
+        public Curso curso;
+        public List<Aluno> alunos;
     }
 }

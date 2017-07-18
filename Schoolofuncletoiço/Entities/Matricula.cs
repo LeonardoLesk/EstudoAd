@@ -8,8 +8,9 @@ namespace Schoolofuncletoiço.Entities
 {
     class Matricula
     {
+        public int idMatricula;
         public Turma turma;
-        public Curso curso;
-
+        public Aluno aluno;
+        public double valorFinal;
     }
 }

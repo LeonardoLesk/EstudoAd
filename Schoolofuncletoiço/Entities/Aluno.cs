@@ -8,11 +8,11 @@ namespace Schoolofuncletoiço.Entities
 {
     public class Aluno
     {
-
+        public int id;
         public string nome;
         public string cpf;
         public string rg;
-        public string endereco;
+        
     }
 
 }
