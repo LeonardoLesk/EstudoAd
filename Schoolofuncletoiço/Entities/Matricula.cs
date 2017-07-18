@@ -8,5 +8,8 @@ namespace Schoolofuncletoiço.Entities
 {
     class Matricula
     {
+        public Turma turma;
+        public Curso curso;
+
     }
 }
