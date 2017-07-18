@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Schoolofuncletoiço.Entities
 {
-    public class Curso
+    public class Empresa
     {
-        public int idCurso;
+        public int idEmpresa;
         public string nome;
-        public double valorBase;
-        public int aulas;
+        public string cnpj;
+
     }
 }

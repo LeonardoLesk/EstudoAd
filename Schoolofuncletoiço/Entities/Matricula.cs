@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Schoolofuncletoiço.Entities
 {
-    class Matricula
+    public class Matricula
     {
         public int idMatricula;
         public Turma turma;
         public Aluno aluno;
+        public Empresa empresa;
         public double valorFinal;
     }
 }

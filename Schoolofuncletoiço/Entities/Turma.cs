@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Schoolofuncletoiço.Entities
 {
-    class Turma
+    public class Turma
     {
         public int idTurma;
         public int vagas;
