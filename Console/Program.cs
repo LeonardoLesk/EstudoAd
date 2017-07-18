@@ -71,11 +71,11 @@ namespace Console
                 valorFinal = cursoUm.valorBase
             };
 
-            matriculas.Add(matriculaUm);
+            Matricular(matriculaUm);
 
-            matriculas.Add(new Matricula()
+            Matricular(new Matricula()
             {
-                idMatricula = 2,
+                idMatricula = 1,
                 aluno = alunoUm,
                 turma = turmaUm,
                 empresa = empresaUm,
@@ -83,6 +83,35 @@ namespace Console
             });
 
             var alunos_da_empresa =  matriculas.Where(x => x.empresa.idEmpresa == 1);
+        }
+
+        public static void Matricular(Matricula matricula)
+        {
+            bool id_ja_existente = true;
+
+
+            for (int i = 0; i < matriculas.Count; i++)
+            {
+                if (matricula.idMatricula == matriculas[i].idMatricula)
+                {
+                    id_ja_existente = true;
+                }
+                else
+                {
+                    id_ja_existente = false;
+                }
+                
+
+            }
+
+            if (id_ja_existente == false)
+            {
+                matriculas.Add(matricula);
+            }
+            else
+            {
+                throw new Exception("Id de matricula já utilizado");
+            }
         }
     }
 }
