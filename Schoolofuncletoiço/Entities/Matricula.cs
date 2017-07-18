@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Schoolofuncletoiço.Entities
 {
-    public class Aluno
+    class Matricula
     {
-       
     }
-
 }
