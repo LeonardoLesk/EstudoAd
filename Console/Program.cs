@@ -23,6 +23,17 @@ namespace Console
             empresas = new List<Empresa>();
             matriculas = new List<Matricula>();
 
+
+            Aluno alunoZero = new Aluno()
+            {
+                id = 0,
+                nome = "LeonardoZero",
+                cpf = "377.534.858/10",
+                rg = "39.360.895-0"
+            };
+
+            addAluno(alunoZero);
+
             Aluno alunoUm = new Aluno()
             {
                 id = 1,
@@ -31,7 +42,7 @@ namespace Console
                 rg = "39.360.895-5"
             };
 
-            alunos.Add(alunoUm);
+            addAluno(alunoUm);
 
             Curso cursoUm = new Curso()
             {
@@ -41,7 +52,7 @@ namespace Console
                 valorBase = 129.99
             };
 
-            cursos.Add(cursoUm);
+            addCurso(cursoUm);
 
             Turma turmaUm = new Turma()
             {
@@ -51,7 +62,7 @@ namespace Console
                 vagas = 10
             };
 
-            turmas.Add(turmaUm);
+            addTurma(turmaUm);
 
             Empresa empresaUm = new Empresa()
             {
@@ -60,7 +71,18 @@ namespace Console
                 nome = "Ad Agency"
             };
 
-            empresas.Add(empresaUm);
+            addEmpresa(empresaUm);
+
+            Matricula matriculaZero = new Matricula()
+            {
+                idMatricula = 0,
+                aluno = alunoZero,
+                turma = turmaUm,
+                empresa = empresaUm,
+                valorFinal = cursoUm.valorBase
+            };
+
+            Matricular(matriculaZero);
 
             Matricula matriculaUm = new Matricula()
             {
@@ -87,31 +109,78 @@ namespace Console
 
         public static void Matricular(Matricula matricula)
         {
-            bool id_ja_existente = true;
 
-
-            for (int i = 0; i < matriculas.Count; i++)
+            foreach (var matriculado in matriculas)
             {
-                if (matricula.idMatricula == matriculas[i].idMatricula)
+                if (matriculado.idMatricula == matricula.idMatricula)
                 {
-                    id_ja_existente = true;
+                    throw new Exception("Id de matricula já registrado");
                 }
-                else
+            }
+
+            // for varrendo matriculas e verificando ids, se encontrar o mesmo id, throw exception
+            //for (int i = 0; i < matriculas.Count; i++)
+            //{
+            //    if(matricula.idMatricula == matriculas[i].idMatricula)
+            //    {
+            //        throw new Exception("Id de matricula já matriculado");
+            //    }   
+            //}
+
+            // adiciona matricula
+            matriculas.Add(matricula);
+        }
+
+        public static void addAluno(Aluno aluno)
+        {
+            foreach (var varAluno in alunos)
+            {
+                if (varAluno.id == aluno.id)
                 {
-                    id_ja_existente = false;
+                    throw new Exception("Id de aluno já registrado");
                 }
-                
-
             }
 
-            if (id_ja_existente == false)
+            alunos.Add(aluno);
+        }
+        
+        public static void addCurso(Curso curso)
+        {
+            foreach (var varCurso in cursos)
             {
-                matriculas.Add(matricula);
+                if (varCurso.idCurso == curso.idCurso)
+                {
+                    throw new Exception("Id de curso já registrado");
+                }
             }
-            else
+
+            cursos.Add(curso);
+        }
+
+        public static void addTurma(Turma turma)
+        {
+            foreach (var varTurma in turmas)
             {
-                throw new Exception("Id de matricula já utilizado");
+                if (varTurma.idTurma == turma.idTurma)
+                {
+                    throw new Exception("Id de turma já registrado");
+                }
             }
+
+            turmas.Add(turma);
+        }
+
+        public static void addEmpresa(Empresa empresa)
+        {
+            foreach (var varEmpresa in empresas)
+            {
+                if (varEmpresa.idEmpresa == empresa.idEmpresa)
+                {
+                    throw new Exception("Id de empresa já registrado");
+                }
+            }
+
+            empresas.Add(empresa);
         }
     }
 }
