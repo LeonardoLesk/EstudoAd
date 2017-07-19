@@ -26,7 +26,7 @@ namespace Console
 
             Aluno alunoZero = new Aluno()
             {
-                id = 0,
+                id = GerarIdAluno(),
                 nome = "LeonardoZero",
                 cpf = "377.534.858/10",
                 rg = "39.360.895-0"
@@ -36,7 +36,7 @@ namespace Console
 
             Aluno alunoUm = new Aluno()
             {
-                id = 1,
+                id = GerarIdAluno(),
                 nome = "Leonardo",
                 cpf = "377.534.858/14",
                 rg = "39.360.895-5"
@@ -129,6 +129,17 @@ namespace Console
 
             // adiciona matricula
             matriculas.Add(matricula);
+        }
+
+        public static int GerarIdAluno(int id)
+        {
+            int count = 0;
+
+            for (int i = 0; i < alunos.Count; i++)
+            {
+               
+            }
+            throw new NotImplementedException();
         }
 
         public static void addAluno(Aluno aluno)
