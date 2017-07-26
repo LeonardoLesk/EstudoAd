@@ -137,7 +137,7 @@ namespace Console
 
             for (int i = 0; i < alunos.Count; i++)
             {
-               
+              
             }
             throw new NotImplementedException();
         }
